@@ -1,5 +1,5 @@
 #
-# NOTE! Please use 'git ls-files -i --exclude-standard'
+# NOTE! Please use 'git ls-files -ic --exclude-standard'
 # command after changing this file, to see if there are
 # any tracked files which get ignored after the change.
 #
@@ -135,8 +135,15 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-# Typescript output
-dist/
+# SSH Certificates
+*.pem
 
-# Generated documentation.
+# Generated documentation
 doc/
+
+# Unknown files
+data/
+build/
+licenses/
+*.lic
+*.bin

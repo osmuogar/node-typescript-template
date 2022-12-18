@@ -1,0 +1,35 @@
+{
+    "opts": {
+        "template": "templates/default",
+        "encoding": "utf8",
+        "destination": "doc/",
+        "recurse": true
+    },
+    "plugins": [
+        "jsdoc-plugin-typescript"
+    ],
+    "recurseDepth": 10,
+    "sourceType": "module",
+    "source": {
+        "include": [
+            "src/"
+        ],
+        "exclude": [],
+        "includePattern": ".+\\.ts(doc|x)?$",
+        "excludePattern": "(^|\\/|\\\\)_"
+    },
+    "tags": {
+        "allowUnknownTags": false,
+        "dictionaries": [
+            "jsdoc",
+            "closure"
+        ]
+    },
+    "templates": {
+        "cleverLinks": false,
+        "monospaceLinks": false
+    },
+    "typescript": {
+        "moduleRoot": "src"
+    }
+}

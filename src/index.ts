@@ -1,15 +1,33 @@
-/*
+/* PROJECT_LICENSE */
 
-*/
+import {
+    isValidEnvironment,
+} from './util';
+
 
 /**
- * @param {number} a first number.
- * @param {number} b second number.
- * @return {number} The sum of the two numbers.
+ * @description Main function of the package.
+ * @param {string[]} args Obtained from process arguments.
+ * @returns {Promise<void>}
  */
-function sum(a: number, b: number): number {
-    console.log('Sm');
-    return a + b;
+export async function main(args: string[]): Promise<void> {
+    /* Check for a correct node environment. */
+    if (process.env.NODE_ENV) {
+        if (!isValidEnvironment(process.env.NODE_ENV)) {
+            throw new Error('Invalid NODE_ENV value');
+        }
+    }
+
+    process.stdout.write('Input arguments: ' + JSON.stringify(args) + '\n');
 }
 
-sum(1, 2);
+// Main execution
+main(process.argv).catch((err) => {
+    if (err instanceof Error) {
+        process.stderr.write('Process finished with error: ' + err.message +
+            ': ' + err.stack);
+    }
+    throw err;
+}).finally(() => {
+    /* Close streams or connections */
+});
